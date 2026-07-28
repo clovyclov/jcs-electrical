@@ -45,15 +45,58 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // 3. Contact / Free Quote Lead Form Submission
+  // 3. Contact / Free Quote Lead Form Submission & GoHighLevel CRM Ingestion
   const quoteForm = document.getElementById('quoteForm');
 
   if (quoteForm) {
     quoteForm.addEventListener('submit', function (e) {
       e.preventDefault();
       
-      // Redirect lead to clean Thank You URL (enables Google Ads conversion tracking)
-      window.location.href = 'thank-you/';
+      const nameInput = quoteForm.querySelector('input[placeholder*="Name"]');
+      const emailInput = quoteForm.querySelector('input[type="email"]');
+      const phoneInput = quoteForm.querySelector('input[type="tel"]');
+      const serviceSelect = quoteForm.querySelector('select');
+      const notesTextarea = quoteForm.querySelector('textarea');
+
+      const fullName = nameInput ? nameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
+      const service = serviceSelect ? serviceSelect.value : '';
+      const notes = notesTextarea ? notesTextarea.value.trim() : '';
+
+      const parts = fullName.split(' ');
+      const firstName = parts[0] || '';
+      const lastName = parts.slice(1).join(' ') || '';
+
+      const payload = {
+        locationId: 'iDdhTAYwVIzsWgprAeiV',
+        firstName: firstName,
+        lastName: lastName,
+        name: fullName,
+        email: email,
+        phone: phone,
+        tags: ['Google-Ads-Lead', 'Website-Quote-Request'],
+        customFields: [
+          { id: '9zKDPiXPh3tePknC1S16', key: 'contact.service_needed', value: service },
+          { id: 'VneiQBZ00NJvcxZLx9Ei', key: 'contact.job_notes', value: notes }
+        ]
+      };
+
+      // Ingest Lead into GoHighLevel CRM
+      fetch('https://services.leadconnectorhq.com/contacts/upsert', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ***REMOVED-GHL-TOKEN***',
+          'Version': '2021-07-28',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).catch(function (err) {
+        console.warn('GHL Submission note:', err);
+      }).finally(function () {
+        // Redirect lead to clean Thank You URL (enables Google Ads conversion tracking)
+        window.location.href = 'thank-you/';
+      });
     });
   }
 
