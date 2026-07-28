@@ -91,9 +91,33 @@ document.addEventListener('DOMContentLoaded', function () {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload)
-      }).catch(function (err) {
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data && data.contact && data.contact.id) {
+          // Auto-Create Opportunity in Sales Pipeline "Residential Electrical Leads"
+          return fetch('https://services.leadconnectorhq.com/opportunities/', {
+            method: 'POST',
+            headers: {
+              'Authorization': 'Bearer ***REMOVED-GHL-TOKEN***',
+              'Version': '2021-07-28',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              pipelineId: 'X1r6FCcsbpVFuyoUVpce',
+              locationId: 'iDdhTAYwVIzsWgprAeiV',
+              name: (fullName || 'New Web Lead') + ' - ' + (service || 'General Inquiry'),
+              pipelineStageId: 'db1328b7-6a4f-472f-84ec-c1b248e889a7',
+              status: 'open',
+              contactId: data.contact.id
+            })
+          });
+        }
+      })
+      .catch(function (err) {
         console.warn('GHL Submission note:', err);
-      }).finally(function () {
+      })
+      .finally(function () {
         // Redirect lead to clean Thank You URL (enables Google Ads conversion tracking)
         window.location.href = 'thank-you/';
       });
