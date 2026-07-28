@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
       question.addEventListener('click', function () {
         const isOpen = item.classList.contains('is-open');
         
-        // Optional: Close other open FAQs
+        // Close other open FAQs for clean accordion feel
         faqItems.forEach(function (otherItem) {
           otherItem.classList.remove('is-open');
         });
@@ -47,18 +47,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 3. Contact / Free Quote Lead Form Submission
   const quoteForm = document.getElementById('quoteForm');
-  const formSuccessCard = document.getElementById('formSuccessCard');
 
-  if (quoteForm && formSuccessCard) {
+  if (quoteForm) {
     quoteForm.addEventListener('submit', function (e) {
       e.preventDefault();
       
-      // Hide form and display success confirmation card
-      quoteForm.style.display = 'none';
-      formSuccessCard.classList.add('is-active');
-
-      // Scroll smoothly to confirmation message if needed
-      formSuccessCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Redirect lead to Thank You page (enables Google Ads conversion tracking)
+      window.location.href = 'thank-you.html';
     });
   }
 

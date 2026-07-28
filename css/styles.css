@@ -934,6 +934,10 @@ textarea.form-control {
     grid-template-columns: 1fr;
   }
 
+  .thankyou-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
   .contact-form {
     padding: 24px 20px;
   }
