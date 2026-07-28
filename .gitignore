@@ -1,0 +1,16 @@
+# Credentials & Configuration
+google-ads.yaml
+*.yaml
+
+# Python cache & temporary files
+__pycache__/
+*.py
+extracted/
+extracted_site/
+inspect_styles.py
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
