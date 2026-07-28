@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
     quoteForm.addEventListener('submit', function (e) {
       e.preventDefault();
       
-      // Redirect lead to Thank You page (enables Google Ads conversion tracking)
-      window.location.href = 'thank-you.html';
+      // Redirect lead to clean Thank You URL (enables Google Ads conversion tracking)
+      window.location.href = 'thank-you/';
     });
   }
 
