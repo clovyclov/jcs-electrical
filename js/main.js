@@ -45,6 +45,84 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // 2.5 Dynamic Text Replacement (DTR) for Google Ads Traffic (?service=...)
+  const urlParams = new URLSearchParams(window.location.search);
+  const serviceParam = (urlParams.get('service') || '').toLowerCase();
+
+  const heroBadge = document.querySelector('.hero-section .heading-tag-text');
+  const heroHeadline = document.querySelector('.hero-headline');
+  const heroDescription = document.querySelector('.hero-description');
+  const formTitle = document.querySelector('#contact .section-title');
+  const serviceSelect = document.querySelector('#quoteForm select');
+
+  const dtrConfigs = {
+    'panel-upgrades': {
+      badge: '⚡ Licensed Electrical Panel Upgrade Specialists',
+      headline: '200 Amp Electrical Panel Upgrades Done Right.',
+      description: 'Upgrading to 200 Amp service or replacing an outdated breaker box? Honest, upfront pricing from licensed electricians in King & Snohomish Counties.',
+      formTitle: 'Get Your Panel Upgrade Quote',
+      selectValue: 'Panel Upgrades'
+    },
+    'panel-upgrade': {
+      badge: '⚡ Licensed Electrical Panel Upgrade Specialists',
+      headline: '200 Amp Electrical Panel Upgrades Done Right.',
+      description: 'Upgrading to 200 Amp service or replacing an outdated breaker box? Honest, upfront pricing from licensed electricians in King & Snohomish Counties.',
+      formTitle: 'Get Your Panel Upgrade Quote',
+      selectValue: 'Panel Upgrades'
+    },
+    'ev-charger': {
+      badge: '🔌 Licensed Home EV Charger Installers',
+      headline: 'Fast, Safe Home EV Charger Installation.',
+      description: 'Expert Level 2 & Tesla Wall Connector installations for your home. Professional, code-compliant setup with upfront pricing.',
+      formTitle: 'Get Your EV Charger Quote',
+      selectValue: 'EV Charger Install'
+    },
+    'ev-charger-installation': {
+      badge: '🔌 Licensed Home EV Charger Installers',
+      headline: 'Fast, Safe Home EV Charger Installation.',
+      description: 'Expert Level 2 & Tesla Wall Connector installations for your home. Professional, code-compliant setup with upfront pricing.',
+      formTitle: 'Get Your EV Charger Quote',
+      selectValue: 'EV Charger Install'
+    },
+    'emergency': {
+      badge: '🚨 24/7 Emergency Electrician Available',
+      headline: 'Electrical Emergency? Fast Dispatch Same-Day.',
+      description: 'Power outages, buzzing breaker boxes, or sparking outlets? Fully licensed, bonded & insured emergency electricians ready to help immediately.',
+      formTitle: 'Request Immediate Emergency Dispatch',
+      selectValue: 'Emergency Repairs'
+    },
+    'emergency-electrician': {
+      badge: '🚨 24/7 Emergency Electrician Available',
+      headline: 'Electrical Emergency? Fast Dispatch Same-Day.',
+      description: 'Power outages, buzzing breaker boxes, or sparking outlets? Fully licensed, bonded & insured emergency electricians ready to help immediately.',
+      formTitle: 'Request Immediate Emergency Dispatch',
+      selectValue: 'Emergency Repairs'
+    },
+    'lighting-outlets': {
+      badge: '💡 Recessed Lighting & Outlet Specialists',
+      headline: 'Expert Lighting & Outlet Installation.',
+      description: 'Transform your home with modern recessed lighting, ceiling fans, or new 240V outlets. Clean, upfront-priced electrical work.',
+      formTitle: 'Get Your Lighting & Outlet Quote',
+      selectValue: 'Lighting Installation'
+    }
+  };
+
+  if (serviceParam && dtrConfigs[serviceParam]) {
+    const config = dtrConfigs[serviceParam];
+    if (heroBadge) heroBadge.textContent = config.badge;
+    if (heroHeadline) heroHeadline.innerHTML = config.headline;
+    if (heroDescription) heroDescription.textContent = config.description;
+    if (formTitle) formTitle.textContent = config.formTitle;
+    if (serviceSelect && config.selectValue) {
+      for (let i = 0; i < serviceSelect.options.length; i++) {
+        if (serviceSelect.options[i].text.includes(config.selectValue)) {
+          serviceSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  }
+
   // 3. Contact / Free Quote Lead Form Submission & GoHighLevel CRM Ingestion
   const quoteForm = document.getElementById('quoteForm');
 
