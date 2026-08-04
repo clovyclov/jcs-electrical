@@ -57,53 +57,60 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const dtrConfigs = {
     'panel-upgrades': {
-      badge: '⚡ Licensed Electrical Panel Upgrade Specialists',
-      headline: 'Electrical Panel Upgrades Done Right.',
-      description: 'Upgrading your electrical panel or replacing an outdated breaker box? Honest, upfront pricing from licensed electricians in King & Snohomish Counties.',
+      badge: '⚡ UPFRONT-PRICED PANEL REPLACEMENTS',
+      headline: 'Stop Tripping Breakers &amp; Safely Power Your Whole Home.',
+      description: 'Upgrade your electrical box to cleanly run heavy appliances, AC units, and EV chargers with guaranteed upfront pricing.',
       formTitle: 'Get Your Panel Upgrade Quote',
       selectValue: 'Panel Upgrades'
     },
     'panel-upgrade': {
-      badge: '⚡ Licensed Electrical Panel Upgrade Specialists',
-      headline: 'Electrical Panel Upgrades Done Right.',
-      description: 'Upgrading your electrical panel or replacing an outdated breaker box? Honest, upfront pricing from licensed electricians in King & Snohomish Counties.',
+      badge: '⚡ UPFRONT-PRICED PANEL REPLACEMENTS',
+      headline: 'Stop Tripping Breakers &amp; Safely Power Your Whole Home.',
+      description: 'Upgrade your electrical box to cleanly run heavy appliances, AC units, and EV chargers with guaranteed upfront pricing.',
       formTitle: 'Get Your Panel Upgrade Quote',
       selectValue: 'Panel Upgrades'
     },
     'ev-charger': {
-      badge: '🔌 Licensed Home EV Charger Installers',
-      headline: 'Fast, Safe Home EV Charger Installation.',
-      description: 'Expert Level 2 & Tesla Wall Connector installations for your home. Professional, code-compliant setup with upfront pricing.',
+      badge: '🔌 LICENSED EV CHARGER INSTALLATION',
+      headline: 'Charge Your EV 5x Faster Overnight Right at Home.',
+      description: 'Skip public charging stations. Get a safe, dedicated Level 2 or Tesla Wall Connector installed professionally with zero hassle.',
       formTitle: 'Get Your EV Charger Quote',
       selectValue: 'EV Charger Install'
     },
     'ev-charger-installation': {
-      badge: '🔌 Licensed Home EV Charger Installers',
-      headline: 'Fast, Safe Home EV Charger Installation.',
-      description: 'Expert Level 2 & Tesla Wall Connector installations for your home. Professional, code-compliant setup with upfront pricing.',
+      badge: '🔌 LICENSED EV CHARGER INSTALLATION',
+      headline: 'Charge Your EV 5x Faster Overnight Right at Home.',
+      description: 'Skip public charging stations. Get a safe, dedicated Level 2 or Tesla Wall Connector installed professionally with zero hassle.',
       formTitle: 'Get Your EV Charger Quote',
       selectValue: 'EV Charger Install'
     },
     'emergency': {
-      badge: '🚨 24/7 Emergency Electrician Available',
-      headline: 'Electrical Emergency? Fast Dispatch Same-Day.',
-      description: 'Power outages, buzzing breaker boxes, or sparking outlets? Fully licensed, bonded & insured emergency electricians ready to help immediately.',
+      badge: '🚨 24/7 EMERGENCY DISPATCH',
+      headline: 'Get Your Power Restored Fast &amp; Eliminate Fire Hazards.',
+      description: 'Sparking outlets, buzzing breaker boxes, or sudden power outage? Our licensed emergency electricians arrive same-day to make your home safe.',
       formTitle: 'Request Immediate Emergency Dispatch',
       selectValue: 'Emergency Repairs'
     },
     'emergency-electrician': {
-      badge: '🚨 24/7 Emergency Electrician Available',
-      headline: 'Electrical Emergency? Fast Dispatch Same-Day.',
-      description: 'Power outages, buzzing breaker boxes, or sparking outlets? Fully licensed, bonded & insured emergency electricians ready to help immediately.',
+      badge: '🚨 24/7 EMERGENCY DISPATCH',
+      headline: 'Get Your Power Restored Fast &amp; Eliminate Fire Hazards.',
+      description: 'Sparking outlets, buzzing breaker boxes, or sudden power outage? Our licensed emergency electricians arrive same-day to make your home safe.',
       formTitle: 'Request Immediate Emergency Dispatch',
       selectValue: 'Emergency Repairs'
     },
     'lighting-outlets': {
-      badge: '💡 Recessed Lighting & Outlet Specialists',
-      headline: 'Expert Lighting & Outlet Installation.',
-      description: 'Transform your home with modern recessed lighting, ceiling fans, or new 240V outlets. Clean, upfront-priced electrical work.',
-      formTitle: 'Get Your Lighting & Outlet Quote',
+      badge: '💡 RECESSED LIGHTING &amp; OUTLETS',
+      headline: 'Brighten Your Rooms &amp; Get Outlets Right Where You Need Them.',
+      description: 'Transform dim spaces with custom recessed LED lighting and add heavy-duty 240V or USB outlets cleanly without messy wires.',
+      formTitle: 'Get Your Lighting &amp; Outlet Quote',
       selectValue: 'Lighting Installation'
+    },
+    'residential': {
+      badge: 'FAMILY-OWNED LICENSED ELECTRICIANS',
+      headline: 'Enjoy Safe, Hassle-Free Power With Upfront Pricing.',
+      description: 'No surprise fees, no shortcuts. JCS Electrical keeps your family safe and powered with guaranteed craftsmanship across King &amp; Snohomish Counties.',
+      formTitle: 'Get Your Free Quote',
+      selectValue: ''
     }
   };
 
