@@ -58,15 +58,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const dtrConfigs = {
     'panel-upgrades': {
       badge: '⚡ Licensed Electrical Panel Upgrade Specialists',
-      headline: '200 Amp Electrical Panel Upgrades Done Right.',
-      description: 'Upgrading to 200 Amp service or replacing an outdated breaker box? Honest, upfront pricing from licensed electricians in King & Snohomish Counties.',
+      headline: 'Electrical Panel Upgrades Done Right.',
+      description: 'Upgrading your electrical panel or replacing an outdated breaker box? Honest, upfront pricing from licensed electricians in King & Snohomish Counties.',
       formTitle: 'Get Your Panel Upgrade Quote',
       selectValue: 'Panel Upgrades'
     },
     'panel-upgrade': {
       badge: '⚡ Licensed Electrical Panel Upgrade Specialists',
-      headline: '200 Amp Electrical Panel Upgrades Done Right.',
-      description: 'Upgrading to 200 Amp service or replacing an outdated breaker box? Honest, upfront pricing from licensed electricians in King & Snohomish Counties.',
+      headline: 'Electrical Panel Upgrades Done Right.',
+      description: 'Upgrading your electrical panel or replacing an outdated breaker box? Honest, upfront pricing from licensed electricians in King & Snohomish Counties.',
       formTitle: 'Get Your Panel Upgrade Quote',
       selectValue: 'Panel Upgrades'
     },
