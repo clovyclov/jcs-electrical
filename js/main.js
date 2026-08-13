@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ]
       };
 
-      const webhookUrl = 'https://services.leadconnectorhq.com/hooks/iDdhTAYwVIzsWgprAeiV/webhook-trigger/6cc71745-345e-4d77-85b1-1635bdca88e3';
+      const webhookUrl = 'https://services.leadconnectorhq.com/hooks/iDdhTAYwVIzsWgprAeiV/webhook-trigger/62a636e3-8991-4882-af16-4c08d0763081';
 
       // 1. Post to GoHighLevel Webhook Trigger
       const webhookPromise = fetch(webhookUrl, {
