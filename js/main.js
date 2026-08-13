@@ -153,13 +153,16 @@ document.addEventListener('DOMContentLoaded', function () {
       const firstName = parts[0] || '';
       const lastName = parts.slice(1).join(' ') || '';
 
-      const payload = {
+      const webhookPayload = {
         locationId: 'iDdhTAYwVIzsWgprAeiV',
         firstName: firstName,
         lastName: lastName,
         name: fullName,
         email: email,
         phone: phone,
+        service: service,
+        notes: notes,
+        source: 'Website Quote Request Form',
         tags: ['Google-Ads-Lead', 'Website-Quote-Request'],
         customFields: [
           { id: '9zKDPiXPh3tePknC1S16', key: 'contact.service_needed', value: service },
@@ -167,15 +170,28 @@ document.addEventListener('DOMContentLoaded', function () {
         ]
       };
 
-      // Ingest Lead into GoHighLevel CRM
-      fetch('https://services.leadconnectorhq.com/contacts/upsert', {
+      const webhookUrl = 'https://services.leadconnectorhq.com/hooks/iDdhTAYwVIzsWgprAeiV/webhook-trigger/6cc71745-345e-4d77-85b1-1635bdca88e3';
+
+      // 1. Post to GoHighLevel Webhook Trigger
+      const webhookPromise = fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(webhookPayload)
+      }).catch(function (err) {
+        console.warn('Webhook post note:', err);
+      });
+
+      // 2. Ingest Lead into GoHighLevel CRM API
+      const crmPromise = fetch('https://services.leadconnectorhq.com/contacts/upsert', {
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ***REMOVED-GHL-TOKEN***',
           'Version': '2021-07-28',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(webhookPayload)
       })
       .then(function (res) { return res.json(); })
       .then(function (data) {
@@ -201,9 +217,10 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .catch(function (err) {
         console.warn('GHL Submission note:', err);
-      })
-      .finally(function () {
-        // Redirect lead to clean Thank You URL (enables Google Ads conversion tracking)
+      });
+
+      // Wait for submissions before redirecting to Thank You page
+      Promise.all([webhookPromise, crmPromise]).finally(function () {
         window.location.href = 'thank-you/';
       });
     });
