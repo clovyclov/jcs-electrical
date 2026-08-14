@@ -23,25 +23,12 @@
   <!-- Google Fonts & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
 
   <style>
-    /* Dedicated Page Hero & Gallery Enhancements */
-    .ev-hero-image-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    .ev-hero-main-img {
-      width: 100%;
-      height: 440px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid var(--color-border);
-      box-shadow: var(--shadow-xl);
-    }
+    /* Custom EV Page Enhancements matching design system */
     .ev-brands-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -49,24 +36,33 @@
       margin-top: 32px;
     }
     .ev-brand-card {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-border);
+      background: oklch(20% 0.01 260);
+      border: 1px solid oklch(30% 0.01 260);
       border-radius: 8px;
       padding: 16px;
       text-align: center;
       font-weight: 600;
-      color: var(--color-text);
+      color: oklch(95% 0.005 260);
       font-size: 14px;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .ev-brand-card:hover {
-      border-color: var(--color-accent);
+      border-color: var(--accent-gold);
       transform: translateY(-2px);
     }
     .ev-brand-icon {
       font-size: 24px;
       margin-bottom: 8px;
       display: block;
+    }
+    .gallery-caption {
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #94a3b8;
+      background: oklch(18% 0.01 260);
+      border-top: 1px solid oklch(28% 0.01 260);
+      text-align: center;
+      font-weight: 500;
     }
   </style>
 
@@ -76,7 +72,6 @@
     "@context": "https://schema.org",
     "@type": "Electrician",
     "name": "JCS Electrical - Home EV Charger Installation",
-    "image": "https://go.jcselectricalseattle.com/assets/images/logo.png",
     "@id": "https://go.jcselectricalseattle.com/ev-charger-installation/#electrician",
     "url": "https://go.jcselectricalseattle.com/ev-charger-installation/",
     "telephone": "+1-425-696-2234",
@@ -147,65 +142,76 @@
     </div>
   </div>
 
-  <!-- 2. HEADER / NAVIGATION -->
-  <header class="header">
+  <!-- 2. SITE HEADER & NAVIGATION -->
+  <header class="site-header">
     <div class="container header-container">
-      <a href="../" class="logo-link">
-        <img src="../assets/images/logo.png" alt="JCS Electrical Logo" class="site-logo">
+      <a href="../" class="logo">
+        <span class="logo-icon"></span>
+        JCS ELECTRICAL
       </a>
 
-      <nav class="desktop-nav">
-        <a href="../#about">About</a>
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
         <a href="../#services">Services</a>
+        <a href="../#about">About</a>
         <a href="#work">Our Work</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn-primary-sm">Get Free Quote</a>
+        <a href="#contact">Contact</a>
       </nav>
 
+      <!-- Desktop Header Actions -->
+      <div class="header-actions">
+        <a href="tel:4256962234" class="phone-link">(425) 696-2234</a>
+        <a href="#contact" class="btn-primary">Get Your Free Quote</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
       </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <a href="../#services">Services</a>
+      <a href="../#about">About Us</a>
+      <a href="#work">Our Work</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact Us</a>
+      <a href="tel:4256962234" class="btn-primary" style="text-align:center; margin-top:12px;">Call (425) 696-2234</a>
     </div>
   </header>
 
-  <!-- MOBILE NAVIGATION DRAWER -->
-  <div class="mobile-nav-drawer" id="mobileNavDrawer">
-    <a href="../#about">About</a>
-    <a href="../#services">Services</a>
-    <a href="#work">Our Work</a>
-    <a href="#faq">FAQ</a>
-    <a href="tel:4256962234" class="phone-link">(425) 696-2234</a>
-    <a href="#contact" class="btn-primary" style="margin-top: 10px;">Get Free Quote</a>
-  </div>
-
   <!-- 3. HERO SECTION (DEDICATED EV CHARGER) -->
-  <section class="hero-section">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="heading-tag">
-          <div class="heading-tag-line"></div>
-          <span class="heading-tag-text">🔌 LICENSED HOME EV CHARGER INSTALLERS</span>
-        </div>
-        <h1 class="hero-headline">
-          Charge Your EV 5x Faster Overnight Right at Home.
-        </h1>
-        <p class="hero-description">
-          Skip public charging stations and long queues. Get a safe, code-compliant Level 2 or Tesla Wall Connector installed in your garage or driveway with guaranteed upfront pricing.
-        </p>
-        <div class="hero-cta-group">
-          <a href="#contact" class="btn-primary">Get Your EV Charger Quote</a>
-          <a href="tel:4256962234" class="btn-secondary">Call (425) 696-2234</a>
-        </div>
-        <div class="hero-badges">
-          <div class="badge-item"><span class="badge-check">✓</span> Licensed &amp; Insured Electricians</div>
-          <div class="badge-item"><span class="badge-check">✓</span> Tesla &amp; All EV Brands</div>
-          <div class="badge-item"><span class="badge-check">✓</span> Upfront Guaranteed Quotes</div>
-          <div class="badge-item"><span class="badge-check">✓</span> Permits &amp; Inspections Included</div>
-        </div>
+  <section id="hero" class="hero-section container">
+    <div>
+      <div class="heading-tag">
+        <div class="heading-tag-line"></div>
+        <span class="heading-tag-text">🔌 LICENSED HOME EV CHARGER INSTALLERS</span>
       </div>
-      <div class="hero-image-wrapper">
-        <img src="../assets/ev-charger/ev-install-1.jpg" alt="Tesla Model 3 charging in Issaquah garage with Tesla Wall Connector installed by JCS Electrical" class="ev-hero-main-img" loading="eager">
+      <h1 class="hero-headline">
+        Charge Your EV 5x Faster Overnight Right at Home.
+      </h1>
+      <p class="hero-description">
+        Skip public charging stations and long queues. Get a safe, code-compliant Level 2 or Tesla Wall Connector installed in your garage or driveway with guaranteed upfront pricing.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#contact" class="btn-primary">Get Your EV Charger Quote</a>
+        <a href="tel:4256962234" class="btn-secondary">Call (425) 696-2234</a>
       </div>
+      <div class="trust-badges-inline">
+        <div class="badge-item"><span class="badge-check">✓</span> Licensed &amp; Insured</div>
+        <div class="badge-item"><span class="badge-check">✓</span> Tesla &amp; All EV Brands</div>
+        <div class="badge-item"><span class="badge-check">✓</span> Upfront Pricing</div>
+        <div class="badge-item"><span class="badge-check">✓</span> Permits Included</div>
+      </div>
+    </div>
+    <div class="hero-image-wrapper">
+      <img src="../assets/ev-charger/ev-install-1.jpg" alt="Tesla Model 3 charging in Issaquah garage with Tesla Wall Connector installed by JCS Electrical" loading="eager">
     </div>
   </section>
 
@@ -240,7 +246,7 @@
           <span class="heading-tag-text">Real Job Photos</span>
         </div>
         <h2 class="section-title">Recent EV Charger Installations in King &amp; Snohomish</h2>
-        <p style="color: var(--color-text-muted); text-align: center; max-width: 680px; margin: 12px auto 0;">
+        <p style="color: oklch(75% 0.01 260); text-align: center; max-width: 680px; margin: 12px auto 0;">
           Inspect real, completed Level 2 and Tesla Wall Connector installations done by Justin &amp; the JCS Electrical team in local customer garages.
         </p>
       </div>
@@ -248,19 +254,19 @@
       <div class="gallery-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
         <div class="gallery-item">
           <img src="../assets/ev-charger/ev-install-1.jpg" alt="Tesla Model 3 charging in Issaquah home garage with Tesla Wall Connector" loading="lazy">
-          <div style="padding: 12px; font-size: 13px; color: #94a3b8; background: #0f172a; text-align: center; font-weight: 500;">
+          <div class="gallery-caption">
             📍 Tesla Model 3 Home Garage Charger — Issaquah, WA
           </div>
         </div>
         <div class="gallery-item">
           <img src="../assets/ev-charger/ev-install-3.jpg" alt="Tesla Wall Connector installed next to service panel in garage" loading="lazy">
-          <div style="padding: 12px; font-size: 13px; color: #94a3b8; background: #0f172a; text-align: center; font-weight: 500;">
+          <div class="gallery-caption">
             📍 Tesla Wall Connector &amp; 50A Breaker Panel Setup — Woodinville, WA
           </div>
         </div>
         <div class="gallery-item">
           <img src="../assets/ev-charger/ev-install-2.jpg" alt="Tesla Wall Connector and weatherproof 240V NEMA 14-50 outdoor outlet" loading="lazy">
-          <div style="padding: 12px; font-size: 13px; color: #94a3b8; background: #0f172a; text-align: center; font-weight: 500;">
+          <div class="gallery-caption">
             📍 Weatherproof 240V Outdoor NEMA 14-50 Outlet &amp; Tesla Charger — Bothell, WA
           </div>
         </div>
@@ -269,75 +275,77 @@
   </section>
 
   <!-- 6. WHY UPGRADE TO LEVEL 2 HOME CHARGING -->
-  <section class="container why-section" style="padding-top: 60px;">
-    <div class="gallery-header">
-      <div class="heading-tag" style="justify-content: center;">
-        <div class="heading-tag-line"></div>
-        <span class="heading-tag-text">Why Install At Home</span>
+  <section class="why-section">
+    <div class="container">
+      <div class="gallery-header">
+        <div class="heading-tag" style="justify-content: center;">
+          <div class="heading-tag-line"></div>
+          <span class="heading-tag-text">Why Install At Home</span>
+        </div>
+        <h2 class="section-title">The Ultimate Convenience for EV Owners</h2>
       </div>
-      <h2 class="section-title">The Ultimate Convenience for EV Owners</h2>
-    </div>
 
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-number">01</div>
-        <h3 class="why-title">5x to 8x Faster Charging</h3>
-        <p class="why-desc">Standard 120V trickle chargers only give 3-4 miles of range per hour. A dedicated Level 2 240V charger delivers 30 to 44 miles per hour!</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-number">01</div>
+          <h3 class="why-title">5x to 8x Faster Charging</h3>
+          <p class="why-desc">Standard 120V trickle chargers only give 3-4 miles of range per hour. A dedicated Level 2 240V charger delivers 30 to 44 miles per hour!</p>
+        </div>
+        <div class="why-card">
+          <div class="why-number">02</div>
+          <h3 class="why-title">Wake Up 100% Charged</h3>
+          <p class="why-desc">Plug in when you park at night and wake up every morning with a full battery. No more waiting at public Superchargers.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-number">03</div>
+          <h3 class="why-title">Save Money on Electricity</h3>
+          <p class="why-desc">Take advantage of cheap off-peak electricity rates with PSE and Snohomish PUD, drastically reducing your cost per mile compared to gas.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-number">04</div>
+          <h3 class="why-title">Permitted &amp; Safe Installation</h3>
+          <p class="why-desc">Heavy-duty 48A-50A continuous electric loads require proper wire gauge, dedicated circuit breakers, and load calculations to keep your house safe.</p>
+        </div>
       </div>
-      <div class="why-card">
-        <div class="why-number">02</div>
-        <h3 class="why-title">Wake Up 100% Charged</h3>
-        <p class="why-desc">Plug in when you park at night and wake up every morning with a full battery. No more waiting at public Superchargers.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-number">03</div>
-        <h3 class="why-title">Save Money on Electricity</h3>
-        <p class="why-desc">Take advantage of cheap off-peak electricity rates with PSE and Snohomish PUD, drastically reducing your cost per mile compared to gas.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-number">04</div>
-        <h3 class="why-title">Permitted &amp; Safe Installation</h3>
-        <p class="why-desc">Heavy-duty 48A-50A continuous electric loads require proper wire gauge, dedicated circuit breakers, and load calculations to keep your house safe.</p>
-      </div>
-    </div>
 
-    <!-- BRANDS SUPPORTED -->
-    <div style="margin-top: 60px;">
-      <h3 style="text-align: center; font-family: 'Barlow Condensed', sans-serif; font-size: 28px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-text);">
-        We Install All Major EV Charger Brands &amp; Outlets
-      </h3>
-      <div class="ev-brands-grid">
-        <div class="ev-brand-card">
-          <span class="ev-brand-icon">⚡</span>
-          Tesla Wall Connector
-        </div>
-        <div class="ev-brand-card">
-          <span class="ev-brand-icon">🔌</span>
-          Tesla Universal Charger
-        </div>
-        <div class="ev-brand-card">
-          <span class="ev-brand-icon">🔋</span>
-          ChargePoint Home Flex
-        </div>
-        <div class="ev-brand-card">
-          <span class="ev-brand-icon">⚡</span>
-          Grizzl-E Level 2
-        </div>
-        <div class="ev-brand-card">
-          <span class="ev-brand-icon">🔌</span>
-          JuiceBox / Enel X
-        </div>
-        <div class="ev-brand-card">
-          <span class="ev-brand-icon">🚘</span>
-          Wallbox Pulsar Plus
-        </div>
-        <div class="ev-brand-card">
-          <span class="ev-brand-icon">⚡</span>
-          NEMA 14-50 240V Outlet
-        </div>
-        <div class="ev-brand-card">
-          <span class="ev-brand-icon">🛠️</span>
-          Rivian / Ford Charge Station
+      <!-- BRANDS SUPPORTED -->
+      <div style="margin-top: 60px;">
+        <h3 style="text-align: center; font-family: var(--font-heading); font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-main);">
+          We Install All Major EV Charger Brands &amp; Outlets
+        </h3>
+        <div class="ev-brands-grid">
+          <div class="ev-brand-card">
+            <span class="ev-brand-icon">⚡</span>
+            Tesla Wall Connector
+          </div>
+          <div class="ev-brand-card">
+            <span class="ev-brand-icon">🔌</span>
+            Tesla Universal Charger
+          </div>
+          <div class="ev-brand-card">
+            <span class="ev-brand-icon">🔋</span>
+            ChargePoint Home Flex
+          </div>
+          <div class="ev-brand-card">
+            <span class="ev-brand-icon">⚡</span>
+            Grizzl-E Level 2
+          </div>
+          <div class="ev-brand-card">
+            <span class="ev-brand-icon">🔌</span>
+            JuiceBox / Enel X
+          </div>
+          <div class="ev-brand-card">
+            <span class="ev-brand-icon">🚘</span>
+            Wallbox Pulsar Plus
+          </div>
+          <div class="ev-brand-card">
+            <span class="ev-brand-icon">⚡</span>
+            NEMA 14-50 240V Outlet
+          </div>
+          <div class="ev-brand-card">
+            <span class="ev-brand-icon">🛠️</span>
+            Rivian / Ford Charge Station
+          </div>
         </div>
       </div>
     </div>
@@ -402,7 +410,7 @@
       <div>
         <div class="heading-tag">
           <div class="heading-tag-line"></div>
-          <span class="heading-tag-text">Get Your Free Quote</span>
+          <span class="heading-tag-text">Get In Touch</span>
         </div>
         <h2 class="section-title" style="margin-bottom: 20px;">Request EV Charger Installation</h2>
         <p class="about-paragraph">
@@ -450,64 +458,38 @@
 
         <!-- Form Success State -->
         <div class="form-success-card" id="formSuccessCard">
-          <div class="success-icon">✓</div>
-          <h3 class="success-title">Quote Request Received!</h3>
-          <p class="success-desc">
-            Thanks! Our team is reviewing your EV charger installation details right now and will call or text you shortly.
-          </p>
+          <div class="avatar-initials" style="font-size: 20px; width: 44px; height: 44px;">✓</div>
+          <h3 class="section-title" style="font-size: 24px;">Request Received!</h3>
+          <p class="about-paragraph" style="margin: 0;">Thanks — we'll call you back same-day to schedule your free quote.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 9. FOOTER -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <div>
-        <a href="../" class="logo-link">
-          <img src="../assets/images/logo.png" alt="JCS Electrical Logo" class="footer-logo">
-        </a>
-        <p class="footer-text">
-          Family-owned electrical contractor providing fast, upfront-priced residential electrical services across the Greater Seattle &amp; Puget Sound area.
-        </p>
-        <p style="font-size: 12px; color: #94a3b8; margin-top: 8px;">
-          📍 3345 NE Village Square Dr., Woodinville, WA 98072
-        </p>
+  <!-- 9. SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="logo" style="font-size: 20px;">
+          <span class="logo-icon" style="width: 10px; height: 10px;"></span>
+          JCS ELECTRICAL
+        </div>
+        <div style="font-size: 13px; color: #94a3b8; margin-top: 6px; line-height: 1.5;">
+          3345 NE Village Square Dr.<br>
+          Woodinville, WA 98072
+        </div>
       </div>
-
-      <div>
-        <h4 class="footer-heading">Services</h4>
-        <ul class="footer-links">
-          <li><a href="../#services">Residential Wiring</a></li>
-          <li><a href="../#services">Panel Upgrades</a></li>
-          <li><a href="./">EV Charger Installation</a></li>
-          <li><a href="../#services">Lighting Installation</a></li>
-          <li><a href="../#services">Emergency Repairs</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="footer-heading">Contact &amp; Legal</h4>
-        <ul class="footer-links">
-          <li><a href="tel:4256962234">(425) 696-2234</a></li>
-          <li><a href="../privacy-policy/">Privacy Policy</a></li>
-          <li><a href="../terms-of-service/">Terms of Service</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container footer-bottom-content">
-        <span>&copy; 2026 JCS Electrical LLC. All rights reserved. WA License # JCSECEL760DM</span>
-        <span>Woodinville · Bothell · Kirkland · Redmond · Seattle</span>
+      <div class="footer-copy">
+        © 2026 JCS Electrical · Licensed &amp; Insured · License #EC-004821<br>
+        <a href="../privacy-policy/" style="color:#94a3b8; margin-right: 12px; text-decoration: underline;">Privacy Policy</a>
+        <a href="../terms-of-service/" style="color:#94a3b8; text-decoration: underline;">Terms of Service</a>
       </div>
     </div>
   </footer>
 
-  <!-- GHL LeadConnector Chat Widget -->
-  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a6931dc89b8c5f4e83882a5"></script>
-
-  <!-- Main JavaScript File -->
   <script src="../js/main.js"></script>
+
+  <!-- GoHighLevel LeadConnector Chat Widget -->
+  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a6931dc89b8c5f4e83882a5" data-source="WEB_USER"></script>
 </body>
 </html>
