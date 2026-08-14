@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Wait for submissions before redirecting to Thank You page
       Promise.all([webhookPromise, crmPromise]).finally(function () {
-        window.location.href = 'thank-you/';
+        window.location.href = '/thank-you/';
       });
     });
   }
