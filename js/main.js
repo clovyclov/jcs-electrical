@@ -57,49 +57,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const dtrConfigs = {
     'panel-upgrades': {
-      badge: '⚡ UPFRONT-PRICED PANEL REPLACEMENTS',
+      badge: 'UPFRONT-PRICED PANEL REPLACEMENTS',
       headline: 'Stop Tripping Breakers &amp; Safely Power Your Whole Home.',
       description: 'Upgrade your electrical box to cleanly run heavy appliances, AC units, and EV chargers with guaranteed upfront pricing.',
       formTitle: 'Get Your Panel Upgrade Quote',
       selectValue: 'Panel Upgrades'
     },
     'panel-upgrade': {
-      badge: '⚡ UPFRONT-PRICED PANEL REPLACEMENTS',
+      badge: 'UPFRONT-PRICED PANEL REPLACEMENTS',
       headline: 'Stop Tripping Breakers &amp; Safely Power Your Whole Home.',
       description: 'Upgrade your electrical box to cleanly run heavy appliances, AC units, and EV chargers with guaranteed upfront pricing.',
       formTitle: 'Get Your Panel Upgrade Quote',
       selectValue: 'Panel Upgrades'
     },
     'ev-charger': {
-      badge: '🔌 LICENSED EV CHARGER INSTALLATION',
+      badge: 'LICENSED EV CHARGER INSTALLATION',
       headline: 'Charge Your EV 5x Faster Overnight Right at Home.',
       description: 'Skip public charging stations. Get a safe, dedicated Level 2 or Tesla Wall Connector installed professionally with zero hassle.',
       formTitle: 'Get Your EV Charger Quote',
       selectValue: 'EV Charger Install'
     },
     'ev-charger-installation': {
-      badge: '🔌 LICENSED EV CHARGER INSTALLATION',
+      badge: 'LICENSED EV CHARGER INSTALLATION',
       headline: 'Charge Your EV 5x Faster Overnight Right at Home.',
       description: 'Skip public charging stations. Get a safe, dedicated Level 2 or Tesla Wall Connector installed professionally with zero hassle.',
       formTitle: 'Get Your EV Charger Quote',
       selectValue: 'EV Charger Install'
     },
     'emergency': {
-      badge: '🚨 24/7 EMERGENCY DISPATCH',
+      badge: '24/7 EMERGENCY DISPATCH',
       headline: 'Get Your Power Restored Fast &amp; Eliminate Fire Hazards.',
       description: 'Sparking outlets, buzzing breaker boxes, or sudden power outage? Our licensed emergency electricians arrive same-day to make your home safe.',
       formTitle: 'Request Immediate Emergency Dispatch',
       selectValue: 'Emergency Repairs'
     },
     'emergency-electrician': {
-      badge: '🚨 24/7 EMERGENCY DISPATCH',
+      badge: '24/7 EMERGENCY DISPATCH',
       headline: 'Get Your Power Restored Fast &amp; Eliminate Fire Hazards.',
       description: 'Sparking outlets, buzzing breaker boxes, or sudden power outage? Our licensed emergency electricians arrive same-day to make your home safe.',
       formTitle: 'Request Immediate Emergency Dispatch',
       selectValue: 'Emergency Repairs'
     },
     'lighting-outlets': {
-      badge: '💡 RECESSED LIGHTING &amp; OUTLETS',
+      badge: 'RECESSED LIGHTING &amp; OUTLETS',
       headline: 'Brighten Your Rooms &amp; Get Outlets Right Where You Need Them.',
       description: 'Transform dim spaces with custom recessed LED lighting and add heavy-duty 240V or USB outlets cleanly without messy wires.',
       formTitle: 'Get Your Lighting &amp; Outlet Quote',
