@@ -671,16 +671,28 @@ button, input, select, textarea {
 }
 
 .faq-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 24px;
   cursor: pointer;
-  font-weight: 700;
-  font-size: 16px;
   user-select: none;
+  transition: background var(--transition-fast);
 }
 
+.faq-question:hover {
+  background: oklch(23% 0.01 260);
+}
+
+.faq-icon,
 .faq-toggle-icon {
   color: var(--accent-gold);
   font-size: 20px;
@@ -688,6 +700,7 @@ button, input, select, textarea {
   transition: transform var(--transition-fast);
 }
 
+.faq-item.is-open .faq-icon,
 .faq-item.is-open .faq-toggle-icon {
   transform: rotate(45deg);
 }
