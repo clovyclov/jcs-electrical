@@ -24,10 +24,60 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
 
   <style>
+    /* Critical Reviews Slider Layout & Animation Fallbacks */
+    .reviews-section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      overflow: hidden;
+      position: relative;
+    }
+    .reviews-slider-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin-top: 40px;
+      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    }
+    .reviews-slider-track {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 24px !important;
+      width: max-content !important;
+      min-width: max-content !important;
+      animation: infiniteScroll 55s linear infinite !important;
+      animation-play-state: running !important;
+      will-change: transform;
+    }
+    .reviews-slider-track:hover,
+    .reviews-slider-track *:hover {
+      animation-play-state: running !important;
+    }
+    @keyframes infiniteScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .google-review-card {
+      width: 380px !important;
+      min-width: 380px !important;
+      max-width: 380px !important;
+      flex-shrink: 0 !important;
+      background: var(--bg-card, #1c1f26);
+      border: 1px solid var(--border-color-light, rgba(255,255,255,0.1));
+      border-radius: var(--radius-md, 12px);
+      padding: 24px;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
     /* Custom EV Page Layout & Symmetry Fixes */
     .ev-features-grid {
       display: grid;
