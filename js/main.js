@@ -181,7 +181,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const webhookUrl = 'https://services.leadconnectorhq.com/hooks/iDdhTAYwVIzsWgprAeiV/webhook-trigger/62a636e3-8991-4882-af16-4c08d0763081';
 
-      // 1. Post to GoHighLevel Webhook Trigger
+      // Post to GoHighLevel Webhook Trigger. Contact upsert + opportunity
+      // creation are handled by a GHL Workflow attached to this webhook,
+      // not by direct authenticated API calls (a Private Integration Token
+      // must never be shipped in client-side JS since it is world-readable).
       const webhookPromise = fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -190,44 +193,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.warn('Webhook post note:', err);
       });
 
-      // 2. Ingest Lead into GoHighLevel CRM API
-      const crmPromise = fetch('https://services.leadconnectorhq.com/contacts/upsert', {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Bearer ***REMOVED-GHL-TOKEN***',
-          'Version': '2021-07-28',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(webhookPayload)
-      })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (data && data.contact && data.contact.id) {
-          // Auto-Create Opportunity in Sales Pipeline "Residential Electrical Leads"
-          return fetch('https://services.leadconnectorhq.com/opportunities/', {
-            method: 'POST',
-            headers: {
-              'Authorization': 'Bearer ***REMOVED-GHL-TOKEN***',
-              'Version': '2021-07-28',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              pipelineId: 'X1r6FCcsbpVFuyoUVpce',
-              locationId: 'iDdhTAYwVIzsWgprAeiV',
-              name: (fullName || 'New Web Lead') + ' - ' + (service || 'General Inquiry'),
-              pipelineStageId: 'db1328b7-6a4f-472f-84ec-c1b248e889a7',
-              status: 'open',
-              contactId: data.contact.id
-            })
-          });
-        }
-      })
-      .catch(function (err) {
-        console.warn('GHL Submission note:', err);
-      });
-
       // Redirect to Thank You page
-      Promise.all([webhookPromise, crmPromise]).finally(function () {
+      Promise.all([webhookPromise]).finally(function () {
         window.location.href = '/thank-you/';
       });
     });
