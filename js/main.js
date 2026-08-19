@@ -4,7 +4,36 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
-  
+
+  // 0. STICKY MOBILE CALL/QUOTE BAR
+  // Injected before setupLeadModal() so its "Get Quote" link (.btn-primary)
+  // is picked up by the generic ctaTriggers modal-open binding below.
+  function setupStickyMobileCta() {
+    const heroSection = document.getElementById('hero');
+    if (!heroSection || document.getElementById('stickyMobileCta')) return;
+
+    const bar = document.createElement('div');
+    bar.className = 'sticky-mobile-cta';
+    bar.id = 'stickyMobileCta';
+    bar.innerHTML = `
+      <a href="tel:4256962234" class="btn-secondary">Call Now</a>
+      <a href="#contact" class="btn-primary">Get Quote</a>
+    `;
+    document.body.appendChild(bar);
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          bar.classList.toggle('is-visible', !entry.isIntersecting);
+        });
+      });
+      observer.observe(heroSection);
+    } else {
+      bar.classList.add('is-visible');
+    }
+  }
+  setupStickyMobileCta();
+
   // 1. LEAD FORM MODAL INJECTION & LOGIC
   function setupLeadModal() {
     let modalOverlay = document.getElementById('leadModal');

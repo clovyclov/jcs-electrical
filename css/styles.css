@@ -1106,6 +1106,35 @@ textarea.form-control {
 }
 
 /* --------------------------------------------------------------------------
+   12.5 STICKY MOBILE CTA BAR
+   -------------------------------------------------------------------------- */
+.sticky-mobile-cta {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9000;
+  gap: 1px;
+  background: var(--border-color);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+}
+
+.sticky-mobile-cta.is-visible {
+  transform: translateY(0);
+}
+
+.sticky-mobile-cta a {
+  flex: 1;
+  text-align: center;
+  border-radius: 0;
+  padding: 16px 12px;
+  font-size: 15px;
+}
+
+/* --------------------------------------------------------------------------
    13. RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
    -------------------------------------------------------------------------- */
 
@@ -1168,6 +1197,14 @@ textarea.form-control {
   .emergency-banner {
     font-size: 12px;
     padding: 8px 12px;
+  }
+
+  .sticky-mobile-cta {
+    display: flex;
+  }
+
+  body {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
   }
 
   .hero-headline {
