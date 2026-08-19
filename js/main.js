@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </select>
             <textarea name="notes" placeholder="Vehicle model (e.g. Tesla Model Y, Rivian R1T) &amp; job details" rows="3" class="form-control"></textarea>
             <button type="submit" class="btn-primary" style="width: 100%; font-size: 16px; padding: 16px; justify-content: center; cursor: pointer;">Send My Free Quote Request</button>
+            <p style="font-size: 13px; color: var(--accent-gold); font-weight: 700; margin-top: 4px; text-align: center;">We respond within 1 business hour</p>
             <p style="font-size: 11px; color: #94a3b8; margin-top: 4px; line-height: 1.4; text-align: center;">
               By submitting your request, you consent to receive SMS text messages from JCS Electrical regarding your estimate &amp; service updates. Msg &amp; data rates may apply. Reply STOP to opt out. See our <a href="${relativePrefix}privacy-policy/" style="color:var(--accent-gold); text-decoration:underline;">Privacy Policy</a> &amp; <a href="${relativePrefix}terms-of-service/" style="color:var(--accent-gold); text-decoration:underline;">Terms of Service</a>.
             </p>
